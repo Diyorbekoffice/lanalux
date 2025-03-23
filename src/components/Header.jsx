@@ -21,8 +21,8 @@ function Header() {
     const pages = [
         { path: "/", name: "Главная" },
         { path: "/delivery", name: "Выдача товара" },
-        { path: "/about", name: "Biz haqimizda" },
-        { path: "/contact", name: "Aloqa" }
+        { path: "/orders", name: "Ваша корзина" },
+        { path: "/about", name: " О шерсти мериноса" }
     ];
 
     useEffect(() => {
@@ -47,10 +47,7 @@ function Header() {
                         <img className="w-[140px] h-[74px]" src={logo} alt="logo" />
                     </Link>
                     <div className="relative">
-                        <button
-                            className="bg-[#F0EBE7] px-0.5 py-0.5 rounded cursor-pointer"
-                            onClick={() => setIsCatalogOpen(!isCatalogOpen)}
-                        >
+                        <button className="bg-[#F0EBE7] px-0.5 py-0.5 rounded cursor-pointer" onClick={() => setIsCatalogOpen(!isCatalogOpen)} >
                             <div className="flex items-center gap-2.5 p-3 border border-white rounded text-[21px]">
                                 <div className="flex flex-col gap-1">
                                     <div className="bg-[#313131] h-[1px] w-[17px]"></div>
@@ -61,18 +58,11 @@ function Header() {
                             </div>
                         </button>
                         {isCatalogOpen && (
-                            <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-48 z-10">
-                                {pages.map((page) => (
-                                    <Link
-                                        key={page.path}
-                                        to={page.path}
-                                        className={`block px-4 py-2 text-[#714615] cursor-pointer ${
-                                            location.pathname === page.path ? "bg-[#896D4D] text-white" : ""
-                                        }`}
-                                    >
-                                        {page.name}
-                                    </Link>
-                                ))}
+                            <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-48 z-10"> {pages.map((page) => (
+                                <Link
+                                    key={page.path} to={page.path} className={`block px-4 py-2 text-[#714615] cursor-pointer ${location.pathname === page.path ? "bg-[#896D4D] text-white" : ""}`}>{page.name}
+                                </Link>
+                            ))}
                             </div>
                         )}
                     </div>
@@ -94,21 +84,21 @@ function Header() {
                     <button className="p-4 rounded-full bg-[#F0EBE7] w-12 h-12 cursor-pointer">
                         <img src={search} alt="search" />
                     </button>
+
                     <div className="relative">
-                        <button className="p-4 rounded-full bg-[#F0EBE7] w-12 h-12 cursor-pointer">
-                            <img className="w-5 h-5" src={market} alt="market" />
-                        </button>
+                        <Link to="/orders">
+                            <button className="p-4 rounded-full bg-[#F0EBE7] w-12 h-12 cursor-pointer">
+                                <img className="w-5 h-5" src={market} alt="market" />
+                            </button>
+                        </Link>
                         <span className="absolute -top-1 -right-1 bg-[#F0EBE7] text-[10px] px-2 rounded-full w-5 h-5 flex items-center justify-center border border-[#C8B196]">
                             {totalCount}
                         </span>
                     </div>
+
                     <div className="flex items-center gap-2 p-2 rounded">
                         <img src={languages[selectedLang].flag} alt="flag" className="w-5 h-5 max-[1014px]:hidden cursor-pointer" />
-                        <select
-                            className="bg-transparent outline-none cursor-pointer"
-                            value={selectedLang}
-                            onChange={(e) => setSelectedLang(e.target.value)}
-                        >
+                        <select className="bg-transparent outline-none cursor-pointer" value={selectedLang} onChange={(e) => setSelectedLang(e.target.value)}>
                             <option value="ru">RU</option>
                             <option value="en">EN</option>
                         </select>

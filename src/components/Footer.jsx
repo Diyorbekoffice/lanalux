@@ -6,7 +6,6 @@ import visa from "../assets/visa.svg";
 import mir from "../assets/mir.svg";
 import razrabotka from "../assets/разработка.svg";
 
-
 function Footer() {
     return (
         <footer className='bg-[#2C2C2C] text-[#F2F5F5] p-4'>
@@ -55,11 +54,7 @@ function Footer() {
                 </div>
                 <img src={razrabotka} alt="" />
             </div>
-
-
-
         </footer>
-
     )
 }
 

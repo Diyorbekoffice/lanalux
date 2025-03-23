@@ -19,15 +19,10 @@ function Home() {
       <main className="">
         <div className="flex flex-wrap justify-center mx-auto max-w-[1200px] gap-12 max-[1200px]:mt-5 items-center">
           <div className="">
-            <h2 className="text-[#7D3E00] font-medium leading-[38px] text-[25px]">
-              Кардиганы: <br />
-              80% шерсти мериноса <br />
-              и 20% шерсти ангоры
+            <h2 className="text-[#7D3E00] font-medium leading-[38px] text-[25px]">  Кардиганы: <br />  80% шерсти мериноса <br /> и 20% шерсти ангоры
             </h2>
             <Link to="/delivery">
-              <button className="px-24 py-4 mt-5 bg-gradient-to-r from-[#CDB79C] to-[#896D4D] text-white rounded-[5px] cursor-pointer">
-                Перейти
-              </button>
+              <button className="px-24 py-4 mt-5 bg-gradient-to-r from-[#CDB79C] to-[#896D4D] text-white rounded-[5px] cursor-pointer">Перейти </button>
             </Link>
           </div>
           <img className="w-[400px] min-[1201px]:w-[600px]" src={banner} alt="banner" />

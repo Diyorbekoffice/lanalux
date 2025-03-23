@@ -18,8 +18,6 @@
     }
 }
 
-
-
 @theme {
     --font-park: 'Park Avenue';
     --font-vanta:  'Vanta';
@@ -29,7 +27,6 @@
     --color-bginput: rgba(196, 196, 196, 0.25);
 
 }
-
 
 .notification {
     position: fixed;

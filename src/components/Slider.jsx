@@ -76,30 +76,20 @@ function Slider() {
 
     return (
         <div className="relative w-full py-10">
-            {/* Bildirishnoma */}
             {showNotification && (
                 <div className="absolute -top-48 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-md transition-opacity duration-500">
                     Добавлено в корзину!
                 </div>
             )}
-
-            {/* Strelkalar */}
             <div className="absolute -top-12 right-4 flex gap-8 z-10">
-                <button
-                    className="bg-[#F0EBE7] rounded-full p-2 cursor-pointer"
-                    onClick={() => swiperRef.current?.slidePrev()}
-                >
+                <button className="bg-[#F0EBE7] rounded-full p-2 cursor-pointer" onClick={() => swiperRef.current?.slidePrev()} >
                     <img className="w-8 h-8 relative left-4" src={arrowLeft} alt="arrowLeft" />
                 </button>
-                <button
-                    className="bg-[#F0EBE7] rounded-full p-2 cursor-pointer"
-                    onClick={() => swiperRef.current?.slideNext()}
-                >
+                <button className="bg-[#F0EBE7] rounded-full p-2 cursor-pointer" onClick={() => swiperRef.current?.slideNext()} >
                     <img className="w-8 h-8 relative right-4" src={arrowRight} alt="arrowRight" />
                 </button>
             </div>
 
-            {/* Swiper */}
             <Swiper
                 spaceBetween={20}
                 navigation={false}
@@ -109,15 +99,12 @@ function Slider() {
                     0: { slidesPerView: 1 },
                     768: { slidesPerView: 3 },
                     1024: { slidesPerView: 4 },
-                }}
-                className="mySwiper"
-            >
+                }} className="mySwiper" >
                 {data.map((item, index) => (
                     <SwiperSlide
                         key={item.id}
                         className="items-center bg-gradient-to-b from-[#fbf9f5] via-[#FEFCF3] to-[#FEFCF3] shadow-gray-600 text-center flex rounded-[5px] cursor-pointer"
-                        onClick={() => navigate(`/details/${item.id}`)}
-                    >
+                        onClick={() => navigate(`/details/${item.id}`)} >
                         <div className="flex flex-col items-center">
                             <img src={item.img} alt="kitel" className="max-w-[211px] mx-auto bg-white p-4 rounded-[5px]" />
                             <p className="text-[12px] max-w-32 mx-auto ">{item.title}</p>
@@ -126,31 +113,18 @@ function Slider() {
                                 <span className="text-[#313131] text-[10px] border px-1.5">{item.discount}</span>
                             </div>
                             <p className="text-[21px] ">{item.price}</p>
-
-                            {/* Counter */}
                             <div className="flex justify-center items-center gap-2 ml-8 ">
                                 <div className="flex items-center justify-between gap-4 text-2xl border border-gray-300 rounded-lg h-[38px] px-2">
-                                    <button
-                                        onClick={(e) => { e.stopPropagation(); decrement(index); }}
-                                        className="px-2 border-r border-gray-300 cursor-pointer"
-                                    >
+                                    <button onClick={(e) => { e.stopPropagation(); decrement(index); }} className="px-2 border-r border-gray-300 cursor-pointer" >
                                         -
                                     </button>
-
                                     <span className=""> {counts[index]} </span>
 
-                                    <button
-                                        onClick={(e) => { e.stopPropagation(); increment(index); }}
-                                        className="px-2 border-l border-gray-300 cursor-pointer"
-                                    >
+                                    <button onClick={(e) => { e.stopPropagation(); increment(index); }} className="px-2 border-l border-gray-300 cursor-pointer" >
                                         +
                                     </button>
                                 </div>
-
-                                <button
-                                    onClick={(e) => { e.stopPropagation(); addToCart(index); }}
-                                    className="flex items-center cursor-pointer"
-                                >
+                                <button onClick={(e) => { e.stopPropagation(); addToCart(index); }}>
                                     <img src={karzina} alt="karzina" className="w-32 mt-6" />
                                 </button>
                             </div>

@@ -11,6 +11,11 @@ import Rectangle2 from '../assets/Rectangle2.svg'
 import Rectangle3 from '../assets/Rectangle3.svg'
 import Rectangle4 from '../assets/Rectangle4.svg'
 import Header from "../components/Header";
+import Info from "../components/Info2";
+import Slider from "../components/Slider";
+import shers from "../assets/shers.svg";
+import Maps from "../components/Maps";
+import Footer from "../components/Footer";
 
 const data = [
     { id: 1, title: "Мужская курта (скандинавка бежовая) с капюшоном 1", price: "8 000 ₽", discount: "-10%", img: kitel },
@@ -77,8 +82,6 @@ function Details() {
             setShowNotification(false);
             window.location.reload();
         }, 1000);
-
-
     };
 
     if (!product) {
@@ -86,20 +89,16 @@ function Details() {
     }
 
     return (
-
-        <div>
+        <div className="bg-[#F9F7F4]">
             {showNotification && (
-                <div
-                    className={`absolute left-1/2 top-10 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-md transition-opacity duration-500 z-50 ${showNotification ? 'opacity-100 visible' : 'opacity-0 invisible'
-                        }`}
-                >
+                <div className={`absolute left-1/2 top-10 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-md transition-opacity duration-500 z-50 ${showNotification ? 'opacity-100 visible' : 'opacity-0 invisible'}`} >
                     Добавлено в корзину!
                 </div>
             )}
 
             <Header />
 
-            <div className="bg-[#F9F7F4] p-6 ">
+            <div className=" p-6 ">
                 <div className="max-w-[1200px] mx-auto">
                     <h2 className="text-[#313131] text-[25px] mb-[30px]">{product.title}</h2>
                     <div className="flex gap-4 flex-wrap">
@@ -127,9 +126,7 @@ function Details() {
                                     <button
                                         key={size}
                                         onClick={() => setSelectedSize(size)}
-                                        className={`text-[10px] rounded-[5px] gap-3 items-center py-2 px-3 border-[1px] border-[#AFAFAF] flex ${selectedSize === size ? "text-[#313131]" : "text-[#AFAFAF]"
-                                            }`}
-                                    >
+                                        className={`text-[10px] rounded-[5px] gap-3 items-center py-2 px-3 border-[1px] border-[#AFAFAF] flex ${selectedSize === size ? "text-[#313131]" : "text-[#AFAFAF]"}`} >
                                         <img className="w-4" src={selectedSize === size ? onCheck : noCheck} alt="check" />
                                         {size}
                                     </button>
@@ -142,9 +139,7 @@ function Details() {
                                     <button
                                         key={height}
                                         onClick={() => setSelectedHeight(height)}
-                                        className={`text-[10px] gap-3 items-center rounded-[5px] py-2 px-3 border-[1px]  border-[#AFAFAF] flex ${selectedHeight === height ? "text-[#313131]" : "text-[#AFAFAF]"
-                                            }`}
-                                    >
+                                        className={`text-[10px] gap-3 items-center rounded-[5px] py-2 px-3 border-[1px]  border-[#AFAFAF] flex ${selectedHeight === height ? "text-[#313131]" : "text-[#AFAFAF]"}`} >
                                         <img className="w-4" src={selectedHeight === height ? onCheck : noCheck} alt="check" />
                                         {height}
                                     </button>
@@ -183,7 +178,16 @@ function Details() {
 
                     </div>
                 </div>
+                <Info />
             </div>
+            <div className="mx-auto max-w-[1200px] mt-16">
+                <Slider />
+                <h2 className="text-[41px]">Похожие товары</h2>
+                <Slider />
+            </div>
+            <img className="" src={shers} alt="shers" />
+            <Maps />
+            <Footer />
         </div>
     );
 }

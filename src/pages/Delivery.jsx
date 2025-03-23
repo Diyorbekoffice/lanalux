@@ -8,8 +8,6 @@ import Footer from '../components/Footer'
 import Filter from '../components/Filter'
 import shers from "../assets/shers.svg";
 
-
-
 function Delivery() {
   return (
     <div className='bg-[#F9F7F4] '>

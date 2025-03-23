@@ -1,5 +1,4 @@
 import React from 'react';
-
 import детей from "../assets/детей.svg";
 import подушки from "../assets/подушки.svg";
 import декоративные from "../assets/декоративные.svg";
@@ -25,11 +24,7 @@ function Categories() {
         <div className="w-full mx-auto px-4">
             <div className="max-w-[1200px] mx-auto flex flex-wrap gap-5 justify-center lg:justify-start">
                 {categories.map((category, index) => (
-                    <div 
-                        key={index} 
-                        className="bg-[#F0EBE780] p-1 rounded-[5px] mb-5 h-[250px] 
-                        sm:w-full md:w-[48%] lg:w-[32%]"
-                    >
+                    <div key={index} className="bg-[#F0EBE780] p-1 rounded-[5px] mb-5 h-[250px]  sm:w-full md:w-[48%] lg:w-[32%]">
                         <div className="py-[30px] bg-[#F0EBE780] p-6 border-2 border-white rounded-[5px] h-full flex justify-between">
                             <div className="flex flex-col justify-between h-full">
                                 <div>
