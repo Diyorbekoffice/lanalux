@@ -15,35 +15,29 @@ function Orders() {
         const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCartItems(storedCart);
 
-        // LocalStorage-dan totalCount-ni olish
         const storedTotalCount = localStorage.getItem("totalCount");
         if (storedTotalCount) {
             setTotalCount(parseInt(storedTotalCount, 10));
         } else {
-            // Agar totalCount yo‘q bo‘lsa, umumiy mahsulotlar sonini hisoblash
             const count = storedCart.reduce((sum, item) => sum + item.quantity, 0);
             setTotalCount(count);
         }
     }, []);
 
-    // Umumiy summani hisoblash
     const totalSum = cartItems.reduce((sum, item) => {
         const priceNumber = parseFloat(item.price.replace(/\s/g, "").replace("₽", ""));
         return sum + priceNumber * item.quantity;
     }, 0);
 
-    // ❌ Mahsulotni o‘chirish funksiyasi
     const removeItem = (id) => {
-        const updatedCart = cartItems.filter(item => item.id !== id); // O‘chiriladigan mahsulotni filtrlash
+        const updatedCart = cartItems.filter(item => item.id !== id); 
         setCartItems(updatedCart);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-        // Yangi totalCount va totalSum hisoblash
         const newTotalCount = updatedCart.reduce((sum, item) => sum + item.quantity, 0);
         setTotalCount(newTotalCount);
         localStorage.setItem("totalCount", newTotalCount);
 
-        // Agar savat bo‘sh bo‘lsa, totalCount-ni 0 qilamiz
         if (updatedCart.length === 0) {
             localStorage.removeItem("totalCount");
         }
